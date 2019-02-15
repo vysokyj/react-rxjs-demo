@@ -1,47 +1,32 @@
 import React, {Component} from 'react';
-import './App.css';
+import { HashRouter as Router, Route } from "react-router-dom";
 
-import {default as Model} from '../model';
-import CounterIntent from "../intents/counter"
+import './App.css';
+import HomePage from "./HomePage";
+import CounterPage from "./CounterPage";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 
 
 class App extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = Model.state;
-    }
-
-    componentDidMount() {
-        Model.subject.subscribe(appState => {
-            const log = {
-                oldState: this.state,
-                newState: appState
-            };
-            console.log(log);
-
-            this.setState({...appState});
-        });
-    }
-
     render() {
-        const { counter } = this.state || {};
-
-        const handleIncrement = () => { CounterIntent.incrementCounter(); };
-
-        const handleDecrease = () => { CounterIntent.decreaseCounter(); };
-
         return (
-            <div className="jumbotron text-center">
-                <h1>Welcome to React + RxJS</h1>
-                <p>This is a template showcasing RxJS as a dataflow + React + React-router. This project will continue to grown
-                    implementing other use full real life examples! (well as close as) </p>
-                <div className="center-block text-center">
-                    <h1>counter: {counter}</h1>
-                    <button className="btn btn-lg btn-primary" onClick={handleDecrease}>decrease</button>
-                    {'  '}
-                    <button className="btn btn-lg btn-primary" onClick={handleIncrement}>increment</button>
-                </div>
+            <div>
+                <Navbar>
+                    <Navbar.Brand href="/#/home">RxJS Demo</Navbar.Brand>
+                    <Nav className="mr-auto">
+                        <Nav.Link href="/#/home">Home</Nav.Link>
+                        <Nav.Link href="/#/counter">Counter</Nav.Link>
+                    </Nav>
+                </Navbar>
+                <Router>
+                    <div>
+                        <Route exact path="/" component={HomePage} />
+                        <Route exact path="/home" component={HomePage} />
+                        <Route path="/counter" component={CounterPage} />
+                    </div>
+                </Router>
             </div>
         );
     }
