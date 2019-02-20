@@ -13,7 +13,7 @@ actions.incrementCounter.subscribe(() => {
 });
 
 actions.decreaseCounter.subscribe(() => {
-    state = {...state, value: state.value + 1};
+    state = {...state, value: state.value - 1};
     subject.next(state);
 });
 

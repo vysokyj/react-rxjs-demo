@@ -1,7 +1,7 @@
-import React, {Component} from "react";
+import React from "react";
 import store from "../store/index";
 
-class ObserverComponent extends Component {
+class ObserverComponent extends React.Component {
 
     constructor(props) {
         super(props);
