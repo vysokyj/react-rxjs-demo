@@ -4,13 +4,13 @@ import "./index.css";
 import App from "./components/App";
 import * as serviceWorker from "./serviceWorker";
 
-import {default as Model} from "./model";
+import {default as Model} from "./store/index";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
 // logger
-Model.subject.subscribe(appState => {
-    console.log(appState);
+Model.subject.subscribe(nextState => {
+    console.log(nextState);
 });
 
 // If you want your app to work offline and load faster, you can change

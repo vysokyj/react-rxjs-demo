@@ -1,17 +1,19 @@
 import React, {Component} from "react";
-import {default as Model} from "../model";
+import store from "../store/index";
 
 class ObserverComponent extends Component {
 
     constructor(props) {
         super(props);
-        this.state = Model.state;
+        this.state = store.state;
         this.subscription = null;
     }
 
     componentDidMount() {
-        this.subscription = Model.subject.subscribe(appState => {
-            this.setState({...appState});
+        this.subscription = store.subject.subscribe(nextState => {
+            this.setState((state) => {
+                return {...state, ...nextState};
+            })
         });
     }
 
