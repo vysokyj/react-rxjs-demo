@@ -5,6 +5,7 @@ import './App.css';
 import HomePage from "./HomePage";
 import CounterPage from "./CounterPage";
 import GithubPage from "./GithubPage";
+import StressPage from "./StressPage";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 
@@ -20,6 +21,7 @@ class App extends Component {
                         <Nav.Link href="/#/home">Home</Nav.Link>
                         <Nav.Link href="/#/counter">Counter</Nav.Link>
                         <Nav.Link href="/#/github">Github</Nav.Link>
+                        <Nav.Link href="/#/stress">Stress</Nav.Link>
                     </Nav>
                 </Navbar>
                 <Router>
@@ -28,6 +30,7 @@ class App extends Component {
                         <Route exact path="/home" component={HomePage} />
                         <Route path="/counter" component={CounterPage} />
                         <Route path="/github" component={GithubPage} />
+                        <Route path="/stress" component={StressPage} />
                     </div>
                 </Router>
             </div>
