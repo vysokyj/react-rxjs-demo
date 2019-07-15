@@ -1,7 +1,7 @@
 # React RxJS Demo
 
-Thanks God without Redux.
+Without Relay and Redux.
 
-## Inpsiration
+## Inspiration
 
 https://react.rocks/example/React-RxJS
